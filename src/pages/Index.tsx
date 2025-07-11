@@ -96,77 +96,35 @@ const Index = () => {
       {/* Map Section */}
       <section className="py-12">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Map Placeholder */}
-            <div className="lg:col-span-2">
-              <Card className="h-96">
-                <CardHeader>
-                  <CardTitle className="flex items-center">
-                    <Icon
-                      name="MapPin"
-                      size={24}
-                      className="mr-2 text-primary"
-                    />
-                    Интерактивная карта
-                  </CardTitle>
-                  <CardDescription className="text-large">
-                    Передвижные магазины в вашем районе
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="h-64 bg-muted rounded-lg flex items-center justify-center">
-                    <div className="text-center">
-                      <Icon
-                        name="Map"
-                        size={48}
-                        className="mx-auto text-muted-foreground mb-4"
-                      />
-                      <p className="text-large text-muted-foreground">
-                        Карта загружается...
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-
-            {/* Shops List */}
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold mb-4">Магазины поблизости</h3>
-              {mobileShops.map((shop) => (
-                <Card
-                  key={shop.id}
-                  className="hover:shadow-lg transition-shadow"
-                >
-                  <CardContent className="p-4">
-                    <div className="flex items-start justify-between mb-2">
-                      <h4 className="font-bold text-large">{shop.name}</h4>
-                      <Badge
-                        variant={
-                          shop.status === "online" ? "default" : "secondary"
-                        }
-                        className="ml-2"
-                      >
-                        {shop.status === "online" ? "В сети" : "Не в сети"}
-                      </Badge>
-                    </div>
-                    <p className="text-muted-foreground mb-2">{shop.type}</p>
-                    <div className="flex items-center text-sm text-muted-foreground space-x-4">
-                      <span className="flex items-center">
-                        <Icon name="MapPin" size={16} className="mr-1" />
-                        {shop.distance}
-                      </span>
-                      <span className="flex items-center">
-                        <Icon name="Clock" size={16} className="mr-1" />
-                        {shop.eta}
-                      </span>
-                    </div>
-                    <p className="text-sm mt-2">{shop.location}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-          </div>
+          <Card className="max-w-4xl mx-auto">
+            <CardHeader>
+              <CardTitle className="flex items-center justify-center text-2xl">
+                <Icon name="MapPin" size={32} className="mr-3 text-primary" />
+                Интерактивная карта
+              </CardTitle>
+              <CardDescription className="text-large text-center">
+                Передвижные магазины в вашем районе
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <div className="h-96 bg-muted rounded-lg flex items-center justify-center">
+                <div className="text-center">
+                  <Icon
+                    name="Map"
+                    size={64}
+                    className="mx-auto text-muted-foreground mb-4"
+                  />
+                  <p className="text-xl text-muted-foreground mb-2">
+                    Карта загружается...
+                  </p>
+                  <p className="text-large text-muted-foreground">
+                    Здесь будут отображаться передвижные магазины в реальном
+                    времени
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </section>
 
